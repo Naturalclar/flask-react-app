@@ -6,15 +6,17 @@
   "scripts": {
     "start": "python app.py",
     "build": "webpack",
+    "build:watch": "webpack -w",
     "test": "eslint src"
   },
   "keywords": [],
   "author": "Jesse Katsumata",
   "license": "ISC",
   "dependencies": {
-    "material-ui": "^0.18.6",
+    "material-ui": "^1.0.0-alpha.21",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-event-listener": "^0.4.5",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1"
   },

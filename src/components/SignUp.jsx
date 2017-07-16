@@ -1,27 +1,27 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import Input from 'material-ui/Input/Input';
+import Button from 'material-ui/Button';
 
 export default class SignUp extends React.Component {
   render() {
     return(
       <div>
-        <TextField
-          hintText="user name"
+        <Input
+          placeholder="user name"
         />
         <br />
         <br />
-        <TextField
-          hintText="email address"
+        <Input
+          placeholder="email address"
         />
         <br />
         <br />
-        <TextField
-          hintText="password"
+        <Input
+          placeholder="password"
         />
         <br />
         <br />
-        <RaisedButton label="Sign Up" primary={true} />
+        <Button raised color="primary">Sign Up</Button>
       </div>
     );
   }
