@@ -11,20 +11,22 @@ export default class Header extends React.Component{
   
   render(){
     return(
-      <AppBar position="static">
-        <Toolbar className="flexbox">
-          <Link to='/'>
-            <Typography type="title" color="inherit">
-              Flask React App with MySQL
-            </Typography>
-          </Link>
-          <Link to='/showSignUp'>
-            <Button  color="contrast">
-              Sign Up
-            </Button>
-          </Link>
-        </Toolbar>
-      </AppBar>
+      <div className='header'>
+        <AppBar position="static">
+          <Toolbar className="flexbox">
+            <Link to='/'>
+              <Typography type="title" color="inherit">
+                Flask React App with MySQL
+              </Typography>
+            </Link>
+            <Link to='/showSignIn'>
+              <Button  color="contrast">
+                Sign In
+              </Button>
+            </Link>
+          </Toolbar>
+        </AppBar>
+      </div>
     );
   }
   
