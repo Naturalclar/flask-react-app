@@ -16,29 +16,32 @@ app.config['MYSQL_DATABASE_DB'] = 'BucketList'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
-@app.route('/signUp', methods=['POST'])
+@app.route('/api/signUp', methods=['POST'])
 def signUp():
     '''
     Create new user by adding it to MySQL
     '''
+    conn = mysql.connect()
+    cursor = conn.cursor()
     try:
         # read the posted values from the UI
-        _name = request.form['inputName']
-        _email = request.form['inputEmail']
-        _password = request.form['inputPassword']
+    
+        data = json.loads(request.data)
+        _name = data['inputName']
+        _email = data['inputEmail']
+        _password = data['inputPassword']
 
         # validate the received values
         if _name and _email and _password:
             _hashed_password = generate_password_hash(_password)
-            conn = mysql.connect()
-            cursor = conn.cursor()
+            
             cursor.callproc('sp_createUser',(_name,_email,_hashed_password))
             data = cursor.fetchall()
             if len(data) is 0:
                 conn.commit()
                 return json.dumps({'message':'User created successfully !'})
             else:
-                return json.dumps({'error':str(data[0])})
+                return json.dumps({'message':str(data[0])})
         else:
             return json.dumps({'html':'<span>Enter the required fields</span>'})
     except Exception as e:
@@ -46,6 +49,7 @@ def signUp():
     finally:
         cursor.close()
         conn.close()
+  
 
 #@app.route('/showSignUp')
 #def showSignUp():

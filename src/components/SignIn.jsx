@@ -11,7 +11,7 @@ export default class SignIn extends React.Component {
         <Row>
           <Col xs={12}>
             <Row center="xs">
-              <Col xs={6}>
+              <Col md={6} xs={10}>
                 <Paper className="content">
                   <Input
                     placeholder="user name or email"

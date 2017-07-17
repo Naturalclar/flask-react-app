@@ -5,8 +5,6 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import { Link } from 'react-router-dom';
 
-
-
 export default class Header extends React.Component{
   
   render(){
@@ -29,6 +27,4 @@ export default class Header extends React.Component{
       </div>
     );
   }
-  
-
 }
